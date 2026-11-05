@@ -1,4 +1,3 @@
-
 # SPDX-FileCopyrightText: 2026 Erin St Blaine for Adafruit Industries
 #
 # SPDX-License-Identifier: MIT
