@@ -1,3 +1,4 @@
+
 # SPDX-FileCopyrightText: 2026 Erin St Blaine for Adafruit Industries
 #
 # SPDX-License-Identifier: MIT
@@ -10,6 +11,7 @@ import adafruit_dotstar
 import board
 
 NUM_PIXELS = 36
+BRIGHTNESS = 0.3  # Start at 30% to reduce power consumption
 
 CLOCK_PIN = board.SCK
 DATA_PINS = (board.A1, board.A2, board.A3)
@@ -38,8 +40,10 @@ class SpokeDotStar(adafruit_dotstar.DotStar):
 
 
 def write_dotstar(data_pin, color):
-    """Fill one DotStar strip with a solid color."""
-    with SpokeDotStar(CLOCK_PIN, data_pin, NUM_PIXELS) as strip:
+    """Fill one DotStar strip with a solid color at reduced brightness."""
+    with SpokeDotStar(
+        CLOCK_PIN, data_pin, NUM_PIXELS, brightness=BRIGHTNESS
+    ) as strip:
         strip.fill(color)
 
 
